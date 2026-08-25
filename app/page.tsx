@@ -1,7 +1,3 @@
-'use client';
-
-import { useState } from 'react';
-
 const galleryItems = [
   {
     label: 'Condition Swap',
@@ -82,8 +78,6 @@ function GalleryCard({ item }: { item: (typeof galleryItems)[number] }) {
 }
 
 export default function Home() {
-  const [receipt, setReceipt] = useState(2);
-
   return (
     <main>
       <nav className="site-nav" aria-label="Primary navigation">
@@ -92,7 +86,6 @@ export default function Home() {
           <span>Counterfactual State Transport</span>
         </a>
         <div className="nav-links">
-          <a href="#problem">Problem</a>
           <a href="#method">Method</a>
           <a href="#gallery">Gallery</a>
           <a href="#status">Status</a>
@@ -148,52 +141,9 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="section problem-section" id="problem">
-        <div className="section-heading">
-          <p className="section-index">01 / Interruption</p>
-          <h2>Real-time generation is not necessarily responsive.</h2>
-          <p>
-            When a request arrives after denoising step <em>r</em>, the active
-            state already follows the previous action. Swapping conditions is
-            cheap but can react late; rollback is accurate but repeats work.
-          </p>
-        </div>
-
-        <div className="timeline-panel">
-          <div className="timeline-head">
-            <div>
-              <span>Action receipt</span>
-              <strong>after evaluation {receipt}</strong>
-            </div>
-            <code>r = {receipt}</code>
-          </div>
-          <input
-            aria-label="Action receipt denoising step"
-            type="range"
-            min="1"
-            max="3"
-            value={receipt}
-            onChange={(event) => setReceipt(Number(event.target.value))}
-          />
-          <div className="step-row">
-            {[1, 2, 3, 4].map((step) => (
-              <div className={step <= receipt ? 'step stale' : 'step remaining'} key={step}>
-                <span>{step <= receipt ? 'OLD' : 'NEW'}</span>
-                <strong>NFE {step}</strong>
-              </div>
-            ))}
-          </div>
-          <div className="timeline-legend">
-            <span><i className="legend-old" />completed under old action</span>
-            <span><i className="legend-new" />remaining under new action</span>
-            <strong>{4 - receipt} evaluations remain</strong>
-          </div>
-        </div>
-      </section>
-
       <section className="method-band" id="method">
         <div className="method-intro">
-          <p className="section-index">02 / Method</p>
+          <p className="section-index">01 / Method</p>
           <h2>Transport the state. Keep the model frozen.</h2>
           <p>
             CST edits the model-specific clean prediction, reconstructs the
@@ -220,7 +170,7 @@ export default function Home() {
       <section className="section gallery-section" id="gallery">
         <div className="section-heading gallery-heading">
           <div>
-            <p className="section-index">03 / Comparisons</p>
+            <p className="section-index">02 / Comparisons</p>
             <h2>Action response, side by side.</h2>
           </div>
           <p>
@@ -248,7 +198,7 @@ export default function Home() {
 
       <section className="status-section" id="status">
         <div>
-          <p className="section-index">04 / Research status</p>
+          <p className="section-index">03 / Research status</p>
           <h2>Preliminary evidence, explicit boundaries.</h2>
         </div>
         <div className="status-grid">
