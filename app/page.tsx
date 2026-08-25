@@ -88,7 +88,6 @@ export default function Home() {
         <div className="nav-links">
           <a href="#method">Method</a>
           <a href="#gallery">Gallery</a>
-          <a href="#status">Status</a>
         </div>
         <span className="internal-badge">Internal preview</span>
       </nav>
@@ -194,18 +193,6 @@ export default function Home() {
             </video>
           </div>
         </article>
-      </section>
-
-      <section className="status-section" id="status">
-        <div>
-          <p className="section-index">03 / Research status</p>
-          <h2>Preliminary evidence, explicit boundaries.</h2>
-        </div>
-        <div className="status-grid">
-          <div><span>Measured</span><p>minWM CST-Correct at K = 4, r = 2.</p></div>
-          <div><span>In progress</span><p>Final CST_R and CST_T qualitative evaluation.</p></div>
-          <div><span>Required</span><p>Held-out evaluation and second-backbone evidence.</p></div>
-        </div>
       </section>
 
       <footer>
