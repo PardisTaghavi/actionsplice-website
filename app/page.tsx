@@ -1,0 +1,268 @@
+'use client';
+
+import { useState } from 'react';
+
+const galleryItems = [
+  {
+    label: 'Condition Swap',
+    note: 'Temporary HY-WM1.5 sample',
+    video: '/media/hyworld15-example-01.mp4',
+    tone: 'amber',
+  },
+  {
+    label: 'Full Rollback',
+    note: 'Temporary HY-WM1.5 sample',
+    video: '/media/hyworld15-example-02.mp4',
+    tone: 'coral',
+  },
+  {
+    label: 'CST_R',
+    note: 'Final retargeting result reserved',
+    video: null,
+    tone: 'blue',
+  },
+  {
+    label: 'CST_T',
+    note: 'Final temporal transport result reserved',
+    video: null,
+    tone: 'cyan',
+  },
+] as const;
+
+function ControlHud() {
+  return (
+    <div className="control-hud" aria-hidden="true">
+      <div className="key-cluster">
+        <span className="key key-w">W</span>
+        <span className="key">A</span>
+        <span className="key">S</span>
+        <span className="key">D</span>
+      </div>
+      <div className="direction-ring">
+        <span className="dir up">↑</span>
+        <span className="dir left">←</span>
+        <span className="dir right">→</span>
+        <span className="dir down">↓</span>
+        <span className="dir-center" />
+      </div>
+    </div>
+  );
+}
+
+function GalleryCard({ item }: { item: (typeof galleryItems)[number] }) {
+  return (
+    <article className={`gallery-card tone-${item.tone}`}>
+      <div className="media-frame">
+        {item.video ? (
+          <video autoPlay loop muted playsInline preload="metadata">
+            <source src={item.video} type="video/mp4" />
+          </video>
+        ) : (
+          <div className="media-placeholder">
+            <div className="latent-field" />
+            <strong>{item.label}</strong>
+            <span>Final video pending</span>
+          </div>
+        )}
+        <div className="media-topline">
+          <span>{item.label}</span>
+          <span>r = 2</span>
+        </div>
+        <ControlHud />
+      </div>
+      <div className="card-caption">
+        <div>
+          <strong>{item.label}</strong>
+          <p>{item.note}</p>
+        </div>
+        <span className="sample-state">{item.video ? 'FILLER' : 'RESERVED'}</span>
+      </div>
+    </article>
+  );
+}
+
+export default function Home() {
+  const [receipt, setReceipt] = useState(2);
+
+  return (
+    <main>
+      <nav className="site-nav" aria-label="Primary navigation">
+        <a className="brand" href="#top" aria-label="CST home">
+          <span className="brand-mark">C</span>
+          <span>Counterfactual State Transport</span>
+        </a>
+        <div className="nav-links">
+          <a href="#problem">Problem</a>
+          <a href="#method">Method</a>
+          <a href="#gallery">Gallery</a>
+          <a href="#status">Status</a>
+        </div>
+        <span className="internal-badge">Internal preview</span>
+      </nav>
+
+      <section className="hero" id="top">
+        <div className="hero-copy">
+          <p className="eyebrow">In-flight action editing</p>
+          <h1>
+            Correct or Compose.
+            <span>React inside the active chunk.</span>
+          </h1>
+          <p className="hero-lede">
+            CST transports an interrupted sampler state toward its matched
+            new-action trajectory, then resumes the frozen world model.
+          </p>
+          <div className="hero-actions">
+            <a className="primary-button" href="#gallery">Explore comparisons</a>
+            <a className="text-button" href="#method">View method <span>↓</span></a>
+          </div>
+        </div>
+
+        <div className="hero-media" aria-label="Temporary HY-WM1.5 video sample">
+          <video autoPlay loop muted playsInline preload="auto">
+            <source src="/media/hyworld15-example-01.mp4" type="video/mp4" />
+          </video>
+          <div className="hero-media-shade" />
+          <div className="hero-media-label">
+            <span className="live-dot" />
+            Temporary HY-WM1.5 sample
+          </div>
+          <div className="action-switch">
+            <div>
+              <span>OLD ACTION</span>
+              <strong>Forward</strong>
+            </div>
+            <span className="switch-arrow">→</span>
+            <div>
+              <span>REQUEST</span>
+              <strong>Yaw left</strong>
+            </div>
+          </div>
+          <ControlHud />
+        </div>
+
+        <div className="metric-strip" aria-label="Preliminary minWM measurements">
+          <div><strong>24.9%</strong><span>lower response-ready latency</span></div>
+          <div><strong>43.1%</strong><span>less post-request compute</span></div>
+          <div><strong>0</strong><span>discarded denoising evaluations</span></div>
+          <p>Preliminary minWM · K = 4 · r = 2</p>
+        </div>
+      </section>
+
+      <section className="section problem-section" id="problem">
+        <div className="section-heading">
+          <p className="section-index">01 / Interruption</p>
+          <h2>Real-time generation is not necessarily responsive.</h2>
+          <p>
+            When a request arrives after denoising step <em>r</em>, the active
+            state already follows the previous action. Swapping conditions is
+            cheap but can react late; rollback is accurate but repeats work.
+          </p>
+        </div>
+
+        <div className="timeline-panel">
+          <div className="timeline-head">
+            <div>
+              <span>Action receipt</span>
+              <strong>after evaluation {receipt}</strong>
+            </div>
+            <code>r = {receipt}</code>
+          </div>
+          <input
+            aria-label="Action receipt denoising step"
+            type="range"
+            min="1"
+            max="3"
+            value={receipt}
+            onChange={(event) => setReceipt(Number(event.target.value))}
+          />
+          <div className="step-row">
+            {[1, 2, 3, 4].map((step) => (
+              <div className={step <= receipt ? 'step stale' : 'step remaining'} key={step}>
+                <span>{step <= receipt ? 'OLD' : 'NEW'}</span>
+                <strong>NFE {step}</strong>
+              </div>
+            ))}
+          </div>
+          <div className="timeline-legend">
+            <span><i className="legend-old" />completed under old action</span>
+            <span><i className="legend-new" />remaining under new action</span>
+            <strong>{4 - receipt} evaluations remain</strong>
+          </div>
+        </div>
+      </section>
+
+      <section className="method-band" id="method">
+        <div className="method-intro">
+          <p className="section-index">02 / Method</p>
+          <h2>Transport the state. Keep the model frozen.</h2>
+          <p>
+            CST edits the model-specific clean prediction, reconstructs the
+            exact scheduler-consistent state, and resumes ordinary denoising.
+          </p>
+        </div>
+        <div className="method-flow">
+          {[
+            ['01', 'Interrupt', 'Capture the old-action active state.'],
+            ['02', 'Transport', 'Predict the matched clean-state correction.'],
+            ['03', 'Reconstruct', 'Apply the native scheduler realization.'],
+            ['04', 'Resume', 'Execute only the remaining frozen-model NFEs.'],
+          ].map(([index, title, body], position) => (
+            <div className="method-step" key={title}>
+              <span>{index}</span>
+              <strong>{title}</strong>
+              <p>{body}</p>
+              {position < 3 && <i aria-hidden="true">→</i>}
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section className="section gallery-section" id="gallery">
+        <div className="section-heading gallery-heading">
+          <div>
+            <p className="section-index">03 / Comparisons</p>
+            <h2>Action response, side by side.</h2>
+          </div>
+          <p>
+            Temporary clips establish the layout. Final synchronized outputs
+            will use matched scene, seed, action, and request time.
+          </p>
+        </div>
+        <div className="gallery-grid">
+          {galleryItems.map((item) => <GalleryCard item={item} key={item.label} />)}
+        </div>
+
+        <article className="runtime-card">
+          <div className="runtime-copy">
+            <span className="sample-state">TEMPORARY TRACE</span>
+            <h3>Receipt-step runtime view</h3>
+            <p>Forward → yaw left · prompt 03 · request after NFE 1.</p>
+          </div>
+          <div className="runtime-media">
+            <video autoPlay loop muted playsInline preload="metadata">
+              <source src="/media/minwm-runtime.mp4" type="video/mp4" />
+            </video>
+          </div>
+        </article>
+      </section>
+
+      <section className="status-section" id="status">
+        <div>
+          <p className="section-index">04 / Research status</p>
+          <h2>Preliminary evidence, explicit boundaries.</h2>
+        </div>
+        <div className="status-grid">
+          <div><span>Measured</span><p>minWM CST-Correct at K = 4, r = 2.</p></div>
+          <div><span>In progress</span><p>Final CST_R and CST_T qualitative evaluation.</p></div>
+          <div><span>Required</span><p>Held-out evaluation and second-backbone evidence.</p></div>
+        </div>
+      </section>
+
+      <footer>
+        <strong>Counterfactual State Transport</strong>
+        <p>Correct or Compose: In-Flight Action Editing for Interactive World Models</p>
+        <span>Internal research preview · 2026</span>
+      </footer>
+    </main>
+  );
+}
