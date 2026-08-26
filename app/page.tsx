@@ -81,9 +81,9 @@ export default function Home() {
   return (
     <main>
       <nav className="site-nav" aria-label="Primary navigation">
-        <a className="brand" href="#top" aria-label="CST home">
-          <span className="brand-mark">C</span>
-          <span>Counterfactual State Transport</span>
+        <a className="brand" href="#top" aria-label="ActionSplice home">
+          <span className="brand-mark">A</span>
+          <span>ActionSplice</span>
         </a>
         <div className="nav-links">
           <a href="#method">Method</a>
@@ -99,7 +99,7 @@ export default function Home() {
             <span>World Models</span>
           </div>
           <h1>
-            Correct or Compose:
+            ActionSplice:
             <span>In-Flight Action Editing for Interactive World Models</span>
           </h1>
           <p className="hero-authors">
@@ -199,8 +199,8 @@ export default function Home() {
       </section>
 
       <footer>
-        <strong>Counterfactual State Transport</strong>
-        <p>Correct or Compose: In-Flight Action Editing for Interactive World Models</p>
+        <strong>ActionSplice</strong>
+        <p>In-Flight Action Editing for Interactive World Models</p>
         <span>Internal research preview · 2026</span>
       </footer>
     </main>

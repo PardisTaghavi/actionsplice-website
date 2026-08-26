@@ -14,18 +14,18 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://counterfactual-state-transport.ptgh.chatgpt.site'),
-  title: 'Counterfactual State Transport',
+  title: 'ActionSplice: In-Flight Action Editing for Interactive World Models',
   description: 'In-flight action editing for interactive world models.',
   openGraph: {
-    title: 'Counterfactual State Transport',
+    title: 'ActionSplice: In-Flight Action Editing for Interactive World Models',
     description: 'In-flight action editing for interactive world models.',
     type: 'website',
     url: '/',
-    images: [{ url: '/og.png', width: 1200, height: 630, alt: 'Counterfactual State Transport' }],
+    images: [{ url: '/og.png', width: 1200, height: 630, alt: 'ActionSplice' }],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Counterfactual State Transport',
+    title: 'ActionSplice: In-Flight Action Editing for Interactive World Models',
     description: 'In-flight action editing for interactive world models.',
     images: ['/og.png'],
   },
