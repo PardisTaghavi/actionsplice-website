@@ -59,8 +59,9 @@ button, input { font: inherit; }
   margin: 0 0 18px; color: var(--blue); font: 700 11px/1.2 var(--font-geist-mono), monospace;
   text-transform: uppercase; letter-spacing: .15em;
 }
-.hero h1 { max-width: 1400px; margin: 0 auto; color: #111115; font-size: clamp(58px, 7.2vw, 112px); line-height: .98; letter-spacing: -.066em; font-weight: 570; }
+.hero h1 { max-width: 1400px; margin: 0 auto; color: #111115; font-size: clamp(40px, 5.9vw, 92px); line-height: .98; letter-spacing: -.066em; font-weight: 570; }
 .hero h1 span { display: block; color: #111115; }
+.hero-title-detail { white-space: nowrap; }
 .hero-authors { margin: clamp(42px, 5vw, 68px) auto 0; color: #51515a; font-size: clamp(18px, 2.15vw, 32px); line-height: 1.4; letter-spacing: -.035em; font-weight: 510; }
 .hero-affiliation { margin: 12px auto 0; color: #71717a; font-size: clamp(15px, 1.3vw, 20px); line-height: 1.4; letter-spacing: -.02em; }
 .hero-actions { display: flex; justify-content: center; align-items: center; gap: 16px; margin-top: clamp(38px, 4vw, 58px); }
@@ -178,7 +179,8 @@ footer span { font-family: var(--font-geist-mono), monospace; font-size: 9px; te
   .brand span:last-child { display: none; }
   .hero { padding-inline: 14px; }
   .hero-meta { gap: 16px; font-size: 16px; }
-  .hero h1 { font-size: clamp(44px, 13vw, 68px); }
+  .hero h1 { font-size: clamp(40px, 10vw, 56px); }
+  .hero-title-detail { white-space: normal; }
   .hero-authors { font-size: 18px; }
   .hero-actions { flex-direction: column; }
   .primary-button, .text-button { width: min(100%, 320px); }
