@@ -99,9 +99,8 @@ export default function Home() {
             <span>World Models</span>
           </div>
           <h1>
-            <span>ActionSplice:</span>
-            <span className="hero-title-detail">In-Flight Action Editing for Interactive</span>
-            <span>World Models</span>
+            <span className="hero-title-detail">ActionSplice: In-Flight Action Editing</span>
+            <span>for Interactive World Models</span>
           </h1>
           <p className="hero-authors">
             Pardis Taghavi, Tingyu Guo, Jonas Lossner, Gaurav Pandey, Reza Langari
