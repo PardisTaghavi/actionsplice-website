@@ -62,6 +62,7 @@ button, input { font: inherit; }
 .hero h1 { max-width: 1400px; margin: 0 auto; color: #111115; font-size: clamp(58px, 7.2vw, 112px); line-height: .98; letter-spacing: -.066em; font-weight: 570; }
 .hero h1 span { display: block; color: #111115; }
 .hero-authors { margin: clamp(42px, 5vw, 68px) auto 0; color: #51515a; font-size: clamp(18px, 2.15vw, 32px); line-height: 1.4; letter-spacing: -.035em; font-weight: 510; }
+.hero-affiliation { margin: 12px auto 0; color: #71717a; font-size: clamp(15px, 1.3vw, 20px); line-height: 1.4; letter-spacing: -.02em; }
 .hero-actions { display: flex; justify-content: center; align-items: center; gap: 16px; margin-top: clamp(38px, 4vw, 58px); }
 .primary-button, .text-button { padding: 18px 32px; border-radius: 999px; font-size: clamp(15px, 1.35vw, 20px); font-weight: 560; transition: transform .18s ease, background .18s ease; }
 .primary-button { background: #111115; color: white; }

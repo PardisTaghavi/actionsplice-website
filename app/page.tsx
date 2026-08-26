@@ -96,7 +96,7 @@ export default function Home() {
         <div className="hero-copy">
           <div className="hero-meta">
             <time dateTime="2026-08-25">August 25, 2026</time>
-            <span>Texas A&amp;M University</span>
+            <span>World Models</span>
           </div>
           <h1>
             Correct or Compose:
@@ -105,6 +105,7 @@ export default function Home() {
           <p className="hero-authors">
             Pardis Taghavi, Tingyu Guo, Jonas Lossner, Gaurav Pandey, Reza Langari
           </p>
+          <p className="hero-affiliation">Texas A&amp;M University</p>
           <div className="hero-actions">
             <a className="primary-button" href="#gallery">Explore results</a>
             <a className="text-button" href="#method">View method</a>
