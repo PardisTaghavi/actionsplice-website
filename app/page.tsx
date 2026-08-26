@@ -96,7 +96,7 @@ export default function Home() {
         <div className="hero-copy">
           <div className="hero-meta">
             <time dateTime="2026-08-25">August 25, 2026</time>
-            <span>World Models</span>
+            <span>Texas A&amp;M University</span>
           </div>
           <h1>
             Correct or Compose:
