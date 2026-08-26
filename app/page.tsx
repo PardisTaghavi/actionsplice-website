@@ -94,18 +94,20 @@ export default function Home() {
 
       <section className="hero" id="top">
         <div className="hero-copy">
-          <p className="eyebrow">In-flight action editing</p>
+          <div className="hero-meta">
+            <time dateTime="2026-08-25">August 25, 2026</time>
+            <span>World Models</span>
+          </div>
           <h1>
-            Correct or Compose.
-            <span>React inside the active chunk.</span>
+            Correct or Compose:
+            <span>In-Flight Action Editing for Interactive World Models</span>
           </h1>
-          <p className="hero-lede">
-            CST transports an interrupted sampler state toward its matched
-            new-action trajectory, then resumes the frozen world model.
+          <p className="hero-authors">
+            Pardis Taghavi, Tingyu Guo, Jonas Lossner, Gaurav Pandey, Reza Langari
           </p>
           <div className="hero-actions">
-            <a className="primary-button" href="#gallery">Explore comparisons</a>
-            <a className="text-button" href="#method">View method <span>↓</span></a>
+            <a className="primary-button" href="#gallery">Explore results</a>
+            <a className="text-button" href="#method">View method</a>
           </div>
         </div>
 
