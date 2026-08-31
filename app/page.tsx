@@ -111,10 +111,15 @@ export default function Home() {
               <span>arXiv</span>
               <small>Coming soon</small>
             </span>
-            <span className="resource-placeholder" aria-disabled="true">
+            <a
+              className="resource-placeholder resource-link"
+              href="https://huggingface.co/PardisTaghavi/ActionSplice/tree/main"
+              target="_blank"
+              rel="noreferrer"
+            >
               <span>Checkpoints</span>
-              <small>Coming soon</small>
-            </span>
+              <small>Hugging Face ↗</small>
+            </a>
             <span className="resource-placeholder" aria-disabled="true">
               <span>Code</span>
               <small>Coming soon</small>

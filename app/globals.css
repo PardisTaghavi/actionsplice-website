@@ -73,6 +73,9 @@ button, input { font: inherit; }
 .resource-placeholder small {
   color: #7c8596; font: 650 9px/1 var(--font-geist-mono), monospace; text-transform: uppercase; letter-spacing: .09em;
 }
+.resource-link { border-color: #111115; background: #111115; color: #fff; transition: transform .18s ease, background .18s ease; }
+.resource-link small { color: #c9cfda; }
+.resource-link:hover { transform: translateY(-2px); background: #25252a; }
 
 .hero-media {
   position: relative; max-width: 1440px; aspect-ratio: 2.08/1; margin: 0 auto; overflow: hidden;
