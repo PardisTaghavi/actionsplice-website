@@ -106,9 +106,19 @@ export default function Home() {
             Pardis Taghavi, Tingyu Guo, Jonas Lossner, Gaurav Pandey, Reza Langari
           </p>
           <p className="hero-affiliation">Texas A&amp;M University</p>
-          <div className="hero-actions">
-            <a className="primary-button" href="#gallery">Explore results</a>
-            <a className="text-button" href="#method">View method</a>
+          <div className="hero-actions" aria-label="Research resources">
+            <span className="resource-placeholder" aria-disabled="true">
+              <span>arXiv</span>
+              <small>Coming soon</small>
+            </span>
+            <span className="resource-placeholder" aria-disabled="true">
+              <span>Checkpoints</span>
+              <small>Coming soon</small>
+            </span>
+            <span className="resource-placeholder" aria-disabled="true">
+              <span>Code</span>
+              <small>Coming soon</small>
+            </span>
           </div>
         </div>
 
