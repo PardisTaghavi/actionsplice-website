@@ -109,7 +109,6 @@ export default function Home() {
           <div className="hero-actions" aria-label="Research resources">
             <span className="resource-placeholder" aria-disabled="true">
               <span>arXiv</span>
-              <small>Coming soon</small>
             </span>
             <a
               className="resource-placeholder resource-link"
@@ -118,11 +117,9 @@ export default function Home() {
               rel="noreferrer"
             >
               <span>Checkpoints</span>
-              <small>Hugging Face ↗</small>
             </a>
             <span className="resource-placeholder" aria-disabled="true">
               <span>Code</span>
-              <small>Coming soon</small>
             </span>
           </div>
         </div>
