@@ -60,10 +60,7 @@ function ComparisonCard({ item, compact = false }: { item: ComparisonItem; compa
           <strong>{item.transition} · r = 2</strong>
         ) : (
           <>
-            <div>
-              <strong>{item.prompt}</strong>
-              <p>{item.transition} · r = 2</p>
-            </div>
+            <strong>{item.transition} · r = 2</strong>
             <span className={`sample-state${item.selected ? ' selected-state' : ''}`}>{item.status}</span>
           </>
         )}
