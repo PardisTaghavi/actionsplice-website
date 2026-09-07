@@ -87,7 +87,7 @@ export default function Home() {
       <section className="hero" id="top">
         <div className="hero-copy">
           <div className="hero-meta">
-            <time dateTime="2026-08-25">August 25, 2026</time>
+            <time dateTime="2026-09">September, 2026</time>
             <span>World Models</span>
           </div>
           <h1>
