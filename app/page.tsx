@@ -47,26 +47,6 @@ const repeatedUpdateItems: ComparisonItem[] = [
   },
 ];
 
-function ControlHud() {
-  return (
-    <div className="control-hud" aria-hidden="true">
-      <div className="key-cluster">
-        <span className="key key-w">W</span>
-        <span className="key">A</span>
-        <span className="key">S</span>
-        <span className="key">D</span>
-      </div>
-      <div className="direction-ring">
-        <span className="dir up">↑</span>
-        <span className="dir left">←</span>
-        <span className="dir right">→</span>
-        <span className="dir down">↓</span>
-        <span className="dir-center" />
-      </div>
-    </div>
-  );
-}
-
 function ComparisonCard({ item }: { item: ComparisonItem }) {
   return (
     <article className={`comparison-card${item.selected ? ' is-selected' : ''}`}>
@@ -123,36 +103,6 @@ export default function Home() {
               <span>Code</span>
             </span>
           </div>
-        </div>
-
-        <div className="hero-media" aria-label="Temporary HY-WM1.5 video sample">
-          <video autoPlay loop muted playsInline preload="auto">
-            <source src="/media/hyworld15-example-01.mp4" type="video/mp4" />
-          </video>
-          <div className="hero-media-shade" />
-          <div className="hero-media-label">
-            <span className="live-dot" />
-            Temporary HY-WM1.5 sample
-          </div>
-          <div className="action-switch">
-            <div>
-              <span>OLD ACTION</span>
-              <strong>Forward</strong>
-            </div>
-            <span className="switch-arrow">→</span>
-            <div>
-              <span>REQUEST</span>
-              <strong>Yaw left</strong>
-            </div>
-          </div>
-          <ControlHud />
-        </div>
-
-        <div className="metric-strip" aria-label="Preliminary minWM measurements">
-          <div><strong>24.9%</strong><span>lower response-ready latency</span></div>
-          <div><strong>43.1%</strong><span>less post-request compute</span></div>
-          <div><strong>0</strong><span>discarded denoising evaluations</span></div>
-          <p>Preliminary minWM · K = 4 · r = 2</p>
         </div>
       </section>
 
@@ -230,6 +180,41 @@ export default function Home() {
             </figure>
           </div>
         </article>
+      </section>
+
+      <section className="results-band" id="results">
+        <div className="results-heading">
+          <p className="section-index">03 / Results</p>
+          <h2>Evaluation highlights.</h2>
+          <p>Quantitative results reported in the current manuscript draft.</p>
+        </div>
+        <div className="results-grid">
+          <article className="result-card">
+            <p>CST-R · rollback fidelity</p>
+            <div><strong>61.5%</strong><span>lower LPIPS on minWM</span></div>
+            <div><strong>75.9%</strong><span>lower LPIPS on HY-WM1.5</span></div>
+            <small>Relative to direct condition swapping.</small>
+          </article>
+          <article className="result-card">
+            <p>CST-T · suffix fidelity</p>
+            <div><strong>56.1%</strong><span>lower LPIPS on minWM</span></div>
+            <div><strong>77.5%</strong><span>lower LPIPS on HY-WM1.5</span></div>
+            <small>Relative to direct condition swapping.</small>
+          </article>
+          <article className="result-card">
+            <p>CST-T · pixel-ready speedup</p>
+            <div><strong>2.73×</strong><span>minWM</span></div>
+            <div><strong>1.69×</strong><span>HY-WM1.5</span></div>
+            <small>Relative to waiting.</small>
+          </article>
+          <article className="result-card benchmark-card">
+            <p>HY-WorldPlay · CST-R</p>
+            <div><strong>25.66</strong><span>PSNR</span></div>
+            <div><strong>0.6902</strong><span>SSIM</span></div>
+            <div><strong>0.1337</strong><span>LPIPS</span></div>
+            <small>Against the original rollout.</small>
+          </article>
+        </div>
       </section>
 
       <footer>
