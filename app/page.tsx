@@ -1,4 +1,12 @@
-const comparisonItems = [
+type ComparisonItem = {
+  prompt: string;
+  transition: string;
+  video: string;
+  status: string;
+  selected: boolean;
+};
+
+const comparisonItems: ComparisonItem[] = [
   {
     prompt: 'HY-131',
     transition: 'Backward → Yaw left',
@@ -20,7 +28,24 @@ const comparisonItems = [
     status: 'CANDIDATE',
     selected: false,
   },
-] as const;
+];
+
+const repeatedUpdateItems: ComparisonItem[] = [
+  {
+    prompt: 'HY-132',
+    transition: 'Five sequential action updates',
+    video: '/media/qualitative/hy132-five-interruptions-condition-swap-vs-cstr.mp4',
+    status: '5 INTERRUPTIONS',
+    selected: false,
+  },
+  {
+    prompt: 'HY-120',
+    transition: 'First two sequential action updates',
+    video: '/media/qualitative/hy120-two-interruptions-condition-swap-vs-cstr.mp4',
+    status: '2 INTERRUPTIONS',
+    selected: false,
+  },
+];
 
 function ControlHud() {
   return (
@@ -42,7 +67,7 @@ function ControlHud() {
   );
 }
 
-function ComparisonCard({ item }: { item: (typeof comparisonItems)[number] }) {
+function ComparisonCard({ item }: { item: ComparisonItem }) {
   return (
     <article className={`comparison-card${item.selected ? ' is-selected' : ''}`}>
       <div className="comparison-media">
@@ -178,6 +203,15 @@ export default function Home() {
         </div>
         <div className="comparison-grid">
           {comparisonItems.map((item) => <ComparisonCard item={item} key={item.prompt} />)}
+        </div>
+
+        <div className="repeated-heading">
+          <p className="section-index">Repeated updates</p>
+          <h3>Condition Swap above. CST-R below.</h3>
+          <p>Matched HY-WM1.5 rollouts with repeated action interruptions at r = 2.</p>
+        </div>
+        <div className="comparison-grid repeated-grid">
+          {repeatedUpdateItems.map((item) => <ComparisonCard item={item} key={item.prompt} />)}
         </div>
 
         <article className="cst-t-reserve">
