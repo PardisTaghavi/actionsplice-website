@@ -1,27 +1,45 @@
-const galleryItems = [
+const comparisonItems = [
   {
-    label: 'Condition Swap',
-    note: 'Temporary HY-WM1.5 sample',
-    video: '/media/hyworld15-example-01.mp4',
-    tone: 'amber',
+    prompt: 'HY-131',
+    transition: 'Backward → Yaw left',
+    video: '/media/qualitative/hy131-wait-cstr.mp4',
+    status: 'SELECTED',
+    selected: true,
   },
   {
-    label: 'Full Rollback',
-    note: 'Temporary HY-WM1.5 sample',
-    video: '/media/hyworld15-example-02.mp4',
-    tone: 'coral',
+    prompt: 'HY-130',
+    transition: 'Backward → Forward',
+    video: '/media/qualitative/hy130-wait-cstr.mp4',
+    status: 'CANDIDATE',
+    selected: false,
   },
   {
-    label: 'CST_R',
-    note: 'Final retargeting result reserved',
-    video: null,
-    tone: 'blue',
+    prompt: 'HY-132',
+    transition: 'Forward → Yaw left',
+    video: '/media/qualitative/hy132-wait-cstr.mp4',
+    status: 'CANDIDATE',
+    selected: false,
   },
   {
-    label: 'CST_T',
-    note: 'Final temporal transport result reserved',
-    video: null,
-    tone: 'cyan',
+    prompt: 'HY-142',
+    transition: 'Backward → Forward',
+    video: '/media/qualitative/hy142-wait-cstr.mp4',
+    status: 'CANDIDATE',
+    selected: false,
+  },
+  {
+    prompt: 'HY-145',
+    transition: 'Forward → Backward',
+    video: '/media/qualitative/hy145-wait-cstr.mp4',
+    status: 'CANDIDATE',
+    selected: false,
+  },
+  {
+    prompt: 'HY-146',
+    transition: 'Yaw left → Forward',
+    video: '/media/qualitative/hy146-wait-cstr.mp4',
+    status: 'CANDIDATE',
+    selected: false,
   },
 ] as const;
 
@@ -45,33 +63,20 @@ function ControlHud() {
   );
 }
 
-function GalleryCard({ item }: { item: (typeof galleryItems)[number] }) {
+function ComparisonCard({ item }: { item: (typeof comparisonItems)[number] }) {
   return (
-    <article className={`gallery-card tone-${item.tone}`}>
-      <div className="media-frame">
-        {item.video ? (
-          <video autoPlay loop muted playsInline preload="metadata">
-            <source src={item.video} type="video/mp4" />
-          </video>
-        ) : (
-          <div className="media-placeholder">
-            <div className="latent-field" />
-            <strong>{item.label}</strong>
-            <span>Final video pending</span>
-          </div>
-        )}
-        <div className="media-topline">
-          <span>{item.label}</span>
-          <span>r = 2</span>
-        </div>
-        <ControlHud />
+    <article className={`comparison-card${item.selected ? ' is-selected' : ''}`}>
+      <div className="comparison-media">
+        <video controls loop muted playsInline preload="metadata" aria-label={`${item.prompt}: Wait above CST-R`}>
+          <source src={item.video} type="video/mp4" />
+        </video>
       </div>
-      <div className="card-caption">
+      <div className="comparison-caption">
         <div>
-          <strong>{item.label}</strong>
-          <p>{item.note}</p>
+          <strong>{item.prompt}</strong>
+          <p>{item.transition} · r = 2</p>
         </div>
-        <span className="sample-state">{item.video ? 'FILLER' : 'RESERVED'}</span>
+        <span className={`sample-state${item.selected ? ' selected-state' : ''}`}>{item.status}</span>
       </div>
     </article>
   );
@@ -185,16 +190,24 @@ export default function Home() {
         <div className="section-heading gallery-heading">
           <div>
             <p className="section-index">02 / Comparisons</p>
-            <h2>Action response, side by side.</h2>
+            <h2>Wait above. CST-R below.</h2>
           </div>
           <p>
-            Temporary clips establish the layout. Final synchronized outputs
-            will use matched scene, seed, action, and request time.
+            HY-131 is selected. The remaining synchronized pairs are temporary
+            candidates for visual review.
           </p>
         </div>
-        <div className="gallery-grid">
-          {galleryItems.map((item) => <GalleryCard item={item} key={item.label} />)}
+        <div className="comparison-grid">
+          {comparisonItems.map((item) => <ComparisonCard item={item} key={item.prompt} />)}
         </div>
+
+        <article className="cst-t-reserve">
+          <span className="sample-state">RESERVED</span>
+          <div>
+            <h3>CST-T qualitative comparison</h3>
+            <p>Within-chunk transport example pending final selection.</p>
+          </div>
+        </article>
 
         <article className="runtime-card">
           <div className="runtime-copy">
