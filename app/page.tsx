@@ -80,7 +80,7 @@ export default function Home() {
         <div className="nav-links">
           <a href="#method">Method</a>
           <a href="#gallery">Gallery</a>
-          <a href="#results">Eval</a>
+          <a href="#results">Evaluation</a>
           <a href="#citation">Citation</a>
         </div>
         <span className="internal-badge">Internal preview</span>
