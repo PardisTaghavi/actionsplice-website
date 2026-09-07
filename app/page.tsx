@@ -119,14 +119,6 @@ export default function Home() {
             <span className="resource-placeholder" aria-disabled="true">
               <span>arXiv</span>
             </span>
-            <a
-              className="resource-placeholder resource-link"
-              href="https://huggingface.co/PardisTaghavi/ActionSplice/tree/main"
-              target="_blank"
-              rel="noreferrer"
-            >
-              <span>Checkpoints</span>
-            </a>
             <span className="resource-placeholder" aria-disabled="true">
               <span>Code</span>
             </span>

@@ -70,9 +70,6 @@ button, input { font: inherit; }
   border: 1px solid #dce1ea; border-radius: 999px; background: #f8f9fb; color: #1a1d24;
   font-size: clamp(15px, 1.2vw, 18px); font-weight: 610; letter-spacing: -.02em;
 }
-.resource-link { border-color: #111115; background: #111115; color: #fff; transition: transform .18s ease, background .18s ease; }
-.resource-link:hover { transform: translateY(-2px); background: #25252a; }
-
 .hero-media {
   position: relative; max-width: 1440px; aspect-ratio: 2.08/1; margin: 0 auto; overflow: hidden;
   border-radius: clamp(18px, 2.3vw, 34px); background: #10192a; box-shadow: 0 42px 100px rgb(20 32 57 / 20%);
