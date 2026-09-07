@@ -160,16 +160,16 @@ export default function Home() {
           <div className="runtime-copy">
             <p className="section-index">CST-T / Qualitative</p>
             <h3>CST-T: Within-chunk action transport</h3>
-            <p>Matched constant-action and Wait controls versus CST-T · r = 2.</p>
+            <p>Matched Wait controls versus CST-T · r = 2.</p>
           </div>
           <div className="runtime-media runtime-media-stack">
             <figure className="runtime-example">
-              <video autoPlay loop muted playsInline preload="metadata" aria-label="HY-136 constant action compared with CST-T">
+              <video autoPlay loop muted playsInline preload="metadata" aria-label="HY-136 Wait compared with CST-T">
                 <source src="/media/qualitative/hy136-constant-vs-cst-t.mp4" type="video/mp4" />
               </video>
             </figure>
             <figure className="runtime-example">
-              <video autoPlay loop muted playsInline preload="metadata" aria-label="HY-149 constant action compared with CST-T">
+              <video autoPlay loop muted playsInline preload="metadata" aria-label="HY-149 Wait compared with CST-T">
                 <source src="/media/qualitative/hy149-constant-vs-cst-t.mp4" type="video/mp4" />
               </video>
             </figure>
