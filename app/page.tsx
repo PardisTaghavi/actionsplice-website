@@ -40,14 +40,14 @@ const repeatedUpdateItems: ComparisonItem[] = [
   },
   {
     prompt: 'HY-120',
-    transition: 'First two sequential action updates',
+    transition: 'Two sequential action updates',
     video: '/media/qualitative/hy120-two-interruptions-condition-swap-vs-cstr.mp4',
     status: '2 INTERRUPTIONS',
     selected: false,
   },
 ];
 
-function ComparisonCard({ item }: { item: ComparisonItem }) {
+function ComparisonCard({ item, compact = false }: { item: ComparisonItem; compact?: boolean }) {
   return (
     <article className={`comparison-card${item.selected ? ' is-selected' : ''}`}>
       <div className="comparison-media">
@@ -56,11 +56,17 @@ function ComparisonCard({ item }: { item: ComparisonItem }) {
         </video>
       </div>
       <div className="comparison-caption">
-        <div>
-          <strong>{item.prompt}</strong>
-          <p>{item.transition} · r = 2</p>
-        </div>
-        <span className={`sample-state${item.selected ? ' selected-state' : ''}`}>{item.status}</span>
+        {compact ? (
+          <strong>{item.transition} · r = 2</strong>
+        ) : (
+          <>
+            <div>
+              <strong>{item.prompt}</strong>
+              <p>{item.transition} · r = 2</p>
+            </div>
+            <span className={`sample-state${item.selected ? ' selected-state' : ''}`}>{item.status}</span>
+          </>
+        )}
       </div>
     </article>
   );
@@ -153,7 +159,7 @@ export default function Home() {
           <p>Matched HY-WM1.5 rollouts with repeated action interruptions at r = 2.</p>
         </div>
         <div className="comparison-grid repeated-grid">
-          {repeatedUpdateItems.map((item) => <ComparisonCard item={item} key={item.prompt} />)}
+          {repeatedUpdateItems.map((item) => <ComparisonCard item={item} compact key={item.prompt} />)}
         </div>
 
         <article className="runtime-card">
