@@ -214,24 +214,23 @@ export default function Home() {
           {repeatedUpdateItems.map((item) => <ComparisonCard item={item} key={item.prompt} />)}
         </div>
 
-        <article className="cst-t-reserve">
-          <span className="sample-state">RESERVED</span>
-          <div>
-            <h3>CST-T qualitative comparison</h3>
-            <p>Within-chunk transport example pending final selection.</p>
-          </div>
-        </article>
-
         <article className="runtime-card">
           <div className="runtime-copy">
-            <span className="sample-state">TEMPORARY TRACE</span>
-            <h3>Receipt-step runtime view</h3>
-            <p>Forward → yaw left · prompt 03 · request after NFE 1.</p>
+            <p className="section-index">CST-T / Qualitative</p>
+            <h3>CST-T: Within-chunk action transport</h3>
+            <p>Constant yaw-left control versus yaw left → yaw right · r = 2 · m = 2.</p>
           </div>
-          <div className="runtime-media">
-            <video autoPlay loop muted playsInline preload="metadata">
-              <source src="/media/minwm-runtime.mp4" type="video/mp4" />
-            </video>
+          <div className="runtime-media runtime-media-stack">
+            <figure className="runtime-example">
+              <video autoPlay loop muted playsInline preload="metadata" aria-label="HY-136 constant action compared with CST-T">
+                <source src="/media/qualitative/hy136-constant-vs-cst-t.mp4" type="video/mp4" />
+              </video>
+            </figure>
+            <figure className="runtime-example">
+              <video autoPlay loop muted playsInline preload="metadata" aria-label="HY-149 constant action compared with CST-T">
+                <source src="/media/qualitative/hy149-constant-vs-cst-t.mp4" type="video/mp4" />
+              </video>
+            </figure>
           </div>
         </article>
       </section>
