@@ -80,6 +80,8 @@ export default function Home() {
         <div className="nav-links">
           <a href="#method">Method</a>
           <a href="#gallery">Gallery</a>
+          <a href="#results">Eval</a>
+          <a href="#citation">Citation</a>
         </div>
         <span className="internal-badge">Internal preview</span>
       </nav>
@@ -217,6 +219,17 @@ export default function Home() {
             <div><strong>0.1337</strong><span>LPIPS</span></div>
             <small>Against the original rollout.</small>
           </article>
+        </div>
+      </section>
+
+      <section className="citation-band" id="citation">
+        <div>
+          <p className="section-index">04 / Citation</p>
+          <h2>Citation</h2>
+        </div>
+        <div className="citation-placeholder">
+          <span>Pending</span>
+          <p>BibTeX will be added with the paper release.</p>
         </div>
       </section>
 
