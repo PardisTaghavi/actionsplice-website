@@ -20,27 +20,6 @@ const comparisonItems = [
     status: 'CANDIDATE',
     selected: false,
   },
-  {
-    prompt: 'HY-142',
-    transition: 'Backward → Forward',
-    video: '/media/qualitative/hy142-wait-cstr.mp4',
-    status: 'CANDIDATE',
-    selected: false,
-  },
-  {
-    prompt: 'HY-145',
-    transition: 'Forward → Backward',
-    video: '/media/qualitative/hy145-wait-cstr.mp4',
-    status: 'CANDIDATE',
-    selected: false,
-  },
-  {
-    prompt: 'HY-146',
-    transition: 'Yaw left → Forward',
-    video: '/media/qualitative/hy146-wait-cstr.mp4',
-    status: 'CANDIDATE',
-    selected: false,
-  },
 ] as const;
 
 function ControlHud() {
