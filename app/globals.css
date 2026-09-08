@@ -97,8 +97,7 @@ button, input { font: inherit; }
 .method-step i { position: absolute; right: -20px; top: 50%; z-index: 2; color: #6d7b91; font-style: normal; }
 
 .gallery-section { max-width: 1600px; margin: auto; }
-.gallery-heading { max-width: none; display: grid; grid-template-columns: 1fr minmax(310px, 520px); align-items: end; gap: 50px; }
-.gallery-heading > p:last-child { margin: 0; }
+.gallery-heading { max-width: 1120px; }
 .comparison-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 22px; margin-top: 56px; }
 .comparison-card { overflow: hidden; border: 1px solid var(--line); border-radius: 20px; background: white; box-shadow: 0 14px 38px rgb(20 32 57 / 7%); }
 .comparison-card.is-selected { border-color: #90aafc; box-shadow: 0 18px 44px rgb(36 87 245 / 15%); }
@@ -170,7 +169,6 @@ footer span { font-family: var(--font-geist-mono), monospace; font-size: 9px; te
   .internal-badge { grid-column: 2; }
   .method-flow { grid-template-columns: repeat(2, 1fr); }
   .method-step i { display: none; }
-  .gallery-heading { grid-template-columns: 1fr; align-items: start; }
   .comparison-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .results-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .citation-band { grid-template-columns: 1fr; }

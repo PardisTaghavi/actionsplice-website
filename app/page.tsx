@@ -146,12 +146,8 @@ export default function Home() {
         <div className="section-heading gallery-heading">
           <div>
             <p className="section-index">02 / Comparisons</p>
-            <h2>Wait above. CST-R below.</h2>
+            <h2>CST-R applies the revised action within the active chunk.</h2>
           </div>
-          <p>
-            HY-131 is selected. The remaining synchronized pairs are temporary
-            candidates for visual review.
-          </p>
         </div>
         <div className="comparison-grid">
           {comparisonItems.map((item) => <ComparisonCard item={item} key={item.prompt} />)}
