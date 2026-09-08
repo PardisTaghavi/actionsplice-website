@@ -136,7 +136,7 @@ export default function Home() {
 
         <div className="repeated-heading">
           <p className="section-index">Repeated updates</p>
-          <h3>Condition Swap above. CST-R below.</h3>
+          <h3>CST-R handles repeated in-flight action updates.</h3>
           <p>Matched HY-WM1.5 rollouts with repeated action interruptions at r = 2.</p>
         </div>
         <div className="comparison-grid repeated-grid">
