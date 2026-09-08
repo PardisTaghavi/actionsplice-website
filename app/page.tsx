@@ -104,9 +104,14 @@ export default function Home() {
             <span className="resource-placeholder" aria-disabled="true">
               <span>arXiv</span>
             </span>
-            <span className="resource-placeholder" aria-disabled="true">
+            <a
+              className="resource-link"
+              href="https://github.com/PardisTaghavi/ActionSplice"
+              target="_blank"
+              rel="noreferrer"
+            >
               <span>Code</span>
-            </span>
+            </a>
           </div>
         </div>
       </section>
