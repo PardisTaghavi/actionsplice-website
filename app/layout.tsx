@@ -1,19 +1,8 @@
 import type { Metadata } from 'next';
-import { Geist, Geist_Mono } from 'next/font/google';
 import './globals.css';
 
-const geistSans = Geist({
-  variable: '--font-geist-sans',
-  subsets: ['latin'],
-});
-
-const geistMono = Geist_Mono({
-  variable: '--font-geist-mono',
-  subsets: ['latin'],
-});
-
 export const metadata: Metadata = {
-  metadataBase: new URL('https://counterfactual-state-transport.ptgh.chatgpt.site'),
+  metadataBase: new URL('https://pardistaghavi.github.io/actionsplice-website'),
   title: 'ActionSplice: In-Flight Action Editing for Interactive World Models',
   description: 'In-flight action editing for interactive world models.',
   openGraph: {
@@ -29,7 +18,7 @@ export const metadata: Metadata = {
     description: 'In-flight action editing for interactive world models.',
     images: ['/og.png'],
   },
-  robots: { index: false, follow: false },
+  robots: { index: true, follow: true },
 };
 
 export default function RootLayout({
@@ -39,9 +28,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${geistSans.variable} ${geistMono.variable}`}>
-        {children}
-      </body>
+      <body>{children}</body>
     </html>
   );
 }

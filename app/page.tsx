@@ -4,6 +4,8 @@ type ComparisonItem = {
   video: string;
 };
 
+const assetPrefix = process.env.NEXT_PUBLIC_BASE_PATH ?? '';
+
 const comparisonItems: ComparisonItem[] = [
   {
     prompt: 'HY-131',
@@ -40,7 +42,7 @@ function ComparisonCard({ item }: { item: ComparisonItem }) {
     <article className="comparison-card">
       <div className="comparison-media">
         <video controls loop muted playsInline preload="metadata" aria-label={`${item.prompt}: Wait above CST-R`}>
-          <source src={item.video} type="video/mp4" />
+          <source src={`${assetPrefix}${item.video}`} type="video/mp4" />
         </video>
       </div>
       <div className="comparison-caption">
@@ -64,7 +66,7 @@ export default function Home() {
           <a href="#results">Evaluation</a>
           <a href="#citation">Citation</a>
         </div>
-        <span className="internal-badge">Internal preview</span>
+        <span className="internal-badge">Research project</span>
       </nav>
 
       <section className="hero" id="top">
@@ -162,17 +164,17 @@ export default function Home() {
           <div className="runtime-media runtime-media-stack">
             <figure className="runtime-example">
               <video autoPlay loop muted playsInline preload="metadata" aria-label="HY-136 Wait compared with CST-T">
-                <source src="/media/qualitative/hy136-constant-vs-cst-t.mp4" type="video/mp4" />
+                <source src={`${assetPrefix}/media/qualitative/hy136-constant-vs-cst-t.mp4`} type="video/mp4" />
               </video>
             </figure>
             <figure className="runtime-example">
               <video autoPlay loop muted playsInline preload="metadata" aria-label="HY-149 Wait compared with CST-T">
-                <source src="/media/qualitative/hy149-constant-vs-cst-t.mp4" type="video/mp4" />
+                <source src={`${assetPrefix}/media/qualitative/hy149-constant-vs-cst-t.mp4`} type="video/mp4" />
               </video>
             </figure>
             <figure className="runtime-example">
               <video autoPlay loop muted playsInline preload="metadata" aria-label="HY-125 Wait compared with CST-T">
-                <source src="/media/qualitative/hy125-wait-vs-cst-t.mp4" type="video/mp4" />
+                <source src={`${assetPrefix}/media/qualitative/hy125-wait-vs-cst-t.mp4`} type="video/mp4" />
               </video>
             </figure>
           </div>
@@ -228,7 +230,7 @@ export default function Home() {
       <footer>
         <strong>ActionSplice</strong>
         <p>In-Flight Action Editing for Interactive World Models</p>
-        <span>Internal research preview · 2026</span>
+        <span>Research website · 2026</span>
       </footer>
     </main>
   );
