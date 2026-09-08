@@ -2,8 +2,6 @@ type ComparisonItem = {
   prompt: string;
   transition: string;
   video: string;
-  status: string;
-  selected: boolean;
 };
 
 const comparisonItems: ComparisonItem[] = [
@@ -11,22 +9,16 @@ const comparisonItems: ComparisonItem[] = [
     prompt: 'HY-131',
     transition: 'Backward → Yaw left',
     video: '/media/qualitative/hy131-wait-cstr.mp4',
-    status: 'SELECTED',
-    selected: true,
   },
   {
     prompt: 'HY-130',
     transition: 'Backward → Forward',
     video: '/media/qualitative/hy130-wait-cstr.mp4',
-    status: 'CANDIDATE',
-    selected: false,
   },
   {
     prompt: 'HY-132',
     transition: 'Forward → Yaw left',
     video: '/media/qualitative/hy132-wait-cstr.mp4',
-    status: 'CANDIDATE',
-    selected: false,
   },
 ];
 
@@ -35,35 +27,24 @@ const repeatedUpdateItems: ComparisonItem[] = [
     prompt: 'HY-132',
     transition: 'Five sequential action updates',
     video: '/media/qualitative/hy132-five-interruptions-condition-swap-vs-cstr.mp4',
-    status: '5 INTERRUPTIONS',
-    selected: false,
   },
   {
     prompt: 'HY-120',
     transition: 'Two sequential action updates',
     video: '/media/qualitative/hy120-two-interruptions-condition-swap-vs-cstr.mp4',
-    status: '2 INTERRUPTIONS',
-    selected: false,
   },
 ];
 
-function ComparisonCard({ item, compact = false }: { item: ComparisonItem; compact?: boolean }) {
+function ComparisonCard({ item }: { item: ComparisonItem }) {
   return (
-    <article className={`comparison-card${item.selected ? ' is-selected' : ''}`}>
+    <article className="comparison-card">
       <div className="comparison-media">
         <video controls loop muted playsInline preload="metadata" aria-label={`${item.prompt}: Wait above CST-R`}>
           <source src={item.video} type="video/mp4" />
         </video>
       </div>
       <div className="comparison-caption">
-        {compact ? (
-          <strong>{item.transition} · r = 2</strong>
-        ) : (
-          <>
-            <strong>{item.transition} · r = 2</strong>
-            <span className={`sample-state${item.selected ? ' selected-state' : ''}`}>{item.status}</span>
-          </>
-        )}
+        <strong>{item.transition} · r = 2</strong>
       </div>
     </article>
   );
@@ -159,7 +140,7 @@ export default function Home() {
           <p>Matched HY-WM1.5 rollouts with repeated action interruptions at r = 2.</p>
         </div>
         <div className="comparison-grid repeated-grid">
-          {repeatedUpdateItems.map((item) => <ComparisonCard item={item} compact key={item.prompt} />)}
+          {repeatedUpdateItems.map((item) => <ComparisonCard item={item} key={item.prompt} />)}
         </div>
 
         <article className="runtime-card">

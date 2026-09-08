@@ -100,13 +100,11 @@ button, input { font: inherit; }
 .gallery-heading { max-width: 1120px; }
 .comparison-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 22px; margin-top: 56px; }
 .comparison-card { overflow: hidden; border: 1px solid var(--line); border-radius: 20px; background: white; box-shadow: 0 14px 38px rgb(20 32 57 / 7%); }
-.comparison-card.is-selected { border-color: #90aafc; box-shadow: 0 18px 44px rgb(36 87 245 / 15%); }
 .comparison-media { aspect-ratio: 832 / 960; overflow: hidden; background: #090f1a; }
 .comparison-media video { width: 100%; height: 100%; display: block; object-fit: contain; }
 .comparison-caption { display: flex; justify-content: space-between; align-items: flex-start; gap: 18px; padding: 18px 19px; }
 .comparison-caption strong { font-size: 15px; }
 .comparison-caption p { margin: 4px 0 0; color: var(--muted); font-size: 11px; }
-.selected-state { background: #e9efff; color: var(--blue); }
 .repeated-heading { max-width: 760px; margin-top: clamp(76px, 8vw, 112px); }
 .repeated-heading .section-index { margin-bottom: 13px; }
 .repeated-heading h3 { margin: 0; font-size: clamp(28px, 3.2vw, 46px); line-height: 1.05; letter-spacing: -.045em; }
@@ -126,7 +124,6 @@ button, input { font: inherit; }
 .card-caption { display: flex; justify-content: space-between; align-items: flex-start; gap: 20px; padding: 20px 22px; }
 .card-caption strong { font-size: 15px; }
 .card-caption p { margin: 4px 0 0; color: var(--muted); font-size: 11px; }
-.sample-state { padding: 6px 8px; border-radius: 6px; background: #f1f4f8; color: #697586; font: 700 8px/1 var(--font-geist-mono), monospace; letter-spacing: .1em; }
 .runtime-card { display: grid; grid-template-columns: minmax(260px, .58fr) 1.42fr; margin-top: 28px; overflow: hidden; border-radius: 20px; background: #eaf0f6; }
 .runtime-copy { display: flex; flex-direction: column; justify-content: center; align-items: flex-start; padding: clamp(28px, 4vw, 60px); }
 .runtime-copy .section-index { margin-bottom: 20px; }
