@@ -97,6 +97,16 @@ export default function Home() {
         </div>
       </section>
 
+      <section className="summary-band" aria-labelledby="summary-title">
+        <h2 className="section-index" id="summary-title">TL;DR</h2>
+        <p>
+          ActionSplice edits an in-progress diffusion state when the requested action changes during sampling.
+          CST-R retargets the active chunk; CST-T preserves the completed prefix and applies the new action to
+          the remaining suffix. Both resume the frozen world model from the current solver step instead of
+          restarting generation.
+        </p>
+      </section>
+
       <section className="method-band" id="method">
         <div className="method-intro">
           <p className="section-index">01 / Method</p>
@@ -126,7 +136,7 @@ export default function Home() {
       <section className="section gallery-section" id="gallery">
         <div className="section-heading gallery-heading">
           <div>
-            <p className="section-index">02 / Comparisons</p>
+            <p className="section-index">02 / Qualitative</p>
             <h2>CST-R applies the revised action within the active chunk.</h2>
           </div>
         </div>
