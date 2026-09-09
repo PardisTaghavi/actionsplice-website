@@ -149,8 +149,20 @@ Canonical project URL: <https://pardistaghavi.github.io/actionsplice-website/>
 - [x] SciRate and other arXiv mirrors discovered the paper automatically.
 - [x] Complete Tier 1 metadata, sitemap, and structured data.
 - [ ] Add the final BibTeX citation when it is released.
-- [ ] Submit Google Search Console property, sitemap, and URL inspection request.
-- [ ] Submit/import the site in Bing Webmaster Tools.
+- [x] Google Search Console URL-prefix property verified through
+      `https://pardistaghavi.github.io/`.
+- [x] Google sitemap submitted and canonical URL added to the priority crawl
+      queue on September 9, 2026. Initial sitemap processing reported
+      `Couldn't fetch`; recheck before taking corrective action.
+- [x] Bing Webmaster Tools property verified through
+      `https://pardistaghavi.github.io/`.
+- [x] Bing sitemap submitted on September 9, 2026 and processing started.
+- [x] Bing canonical URL submitted manually; URL Inspection already reported
+      `Indexed successfully` with no SEO/GEO issues.
+- [x] IndexNow key deployment skipped; manual Bing submission completed for the
+      project URL instead.
+- [x] Indexing status checks scheduled for September 12, September 16, and
+      September 30, 2026. Checks must not resubmit unchanged URLs.
 - [ ] Connect Papers with Code to the official code repository.
 - [ ] Confirm/claim the Hugging Face paper page and connect the checkpoint card.
 - [ ] Confirm CatalyzeX and Semantic Scholar records.
