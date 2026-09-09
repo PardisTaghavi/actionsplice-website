@@ -84,9 +84,14 @@ export default function Home() {
           </p>
           <p className="hero-affiliation">Texas A&amp;M University</p>
           <div className="hero-actions" aria-label="Research resources">
-            <span className="resource-placeholder" aria-disabled="true">
+            <a
+              className="resource-link"
+              href="https://arxiv.org/abs/2609.08230"
+              target="_blank"
+              rel="noreferrer"
+            >
               <span>arXiv</span>
-            </span>
+            </a>
             <a
               className="resource-link"
               href="https://github.com/PardisTaghavi/ActionSplice"
