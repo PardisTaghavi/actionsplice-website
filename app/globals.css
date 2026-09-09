@@ -172,9 +172,9 @@ button, input { font: inherit; }
 
 .citation-band { display: grid; grid-template-columns: .6fr 1.4fr; gap: clamp(36px, 8vw, 140px); align-items: start; padding: clamp(84px, 10vw, 138px) clamp(22px, 5vw, 86px); background: white; }
 .citation-band h2 { margin: 0; font-size: clamp(38px, 5vw, 70px); line-height: 1; letter-spacing: -.05em; font-weight: 620; }
-.citation-placeholder { display: flex; align-items: center; gap: 20px; min-height: 112px; padding: 28px 30px; border: 1px dashed #cad2de; border-radius: 16px; background: #f8f9fb; }
-.citation-placeholder span { padding: 7px 9px; border-radius: 6px; background: #e9edf3; color: #667085; font: 700 9px/1 var(--font-geist-mono), monospace; text-transform: uppercase; letter-spacing: .09em; }
-.citation-placeholder p { margin: 0; color: var(--muted); font-size: 15px; }
+.citation-card { min-width: 0; padding: 26px 28px; border: 1px solid #cad2de; border-radius: 16px; background: #f8f9fb; }
+.citation-card > a { display: inline-block; margin-bottom: 18px; color: var(--blue); font: 700 12px/1.2 var(--font-geist-mono), monospace; letter-spacing: .04em; }
+.citation-card pre { max-width: 100%; margin: 0; overflow-x: auto; color: #263248; font: 500 13px/1.65 var(--font-geist-mono), monospace; white-space: pre; }
 
 footer { display: grid; grid-template-columns: 1fr 1.4fr auto; gap: 35px; align-items: center; padding: 42px clamp(22px, 5vw, 86px); background: white; color: #7a8493; font-size: 11px; }
 footer strong { color: var(--ink); }
@@ -212,7 +212,7 @@ footer span { font-family: var(--font-geist-mono), monospace; font-size: 9px; te
   .results-band { padding-inline: 18px; }
   .results-grid { grid-template-columns: 1fr; }
   .citation-band { padding-inline: 18px; }
-  .citation-placeholder { align-items: flex-start; flex-direction: column; }
+  .citation-card { padding: 22px 18px; }
   .runtime-card { grid-template-columns: 1fr; }
   .runtime-media { min-height: 170px; }
   footer { padding-inline: 18px; }

@@ -226,9 +226,19 @@ export default function Home() {
           <p className="section-index">04 / Citation</p>
           <h2>Citation</h2>
         </div>
-        <div className="citation-placeholder">
-          <span>Pending</span>
-          <p>BibTeX will be added with the paper release.</p>
+        <div className="citation-card">
+          <a href="https://arxiv.org/abs/2609.08230" target="_blank" rel="noreferrer">
+            arXiv:2609.08230
+          </a>
+          <pre><code>{`@misc{taghavi2026actionsplice,
+  title={ActionSplice: In-Flight Action Editing for Interactive World Models},
+  author={Pardis Taghavi and Tingyu Guo and Jonas Lossner and Gaurav Pandey and Reza Langari},
+  year={2026},
+  eprint={2609.08230},
+  archivePrefix={arXiv},
+  primaryClass={cs.CV},
+  url={https://arxiv.org/abs/2609.08230}
+}`}</code></pre>
         </div>
       </section>
 
