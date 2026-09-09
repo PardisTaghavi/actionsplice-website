@@ -32,8 +32,9 @@ service. Link the project page, paper, code, and checkpoints to each other.
 - [ ] Add Open Graph and X/Twitter metadata using absolute URLs.
 - [ ] Publish `sitemap.xml` with the canonical page.
 - [ ] Publish `robots.txt` and reference the sitemap where hosting permits it.
-- [ ] Make the abstract, authors, paper link, code link, and citation visible as
-      HTML—not only inside an image or video.
+- [ ] Make the abstract, authors, paper link, and code link visible as HTML—not
+      only inside an image or video.
+- [ ] Add the final citation as visible HTML when it is released.
 - [ ] Check that the canonical page returns HTTP 200 without authentication.
 - [ ] Check mobile layout, internal anchors, media loading, and broken links.
 - [ ] Keep analytics enabled and record the launch date for comparison.
@@ -146,7 +147,8 @@ Canonical project URL: <https://pardistaghavi.github.io/actionsplice-website/>
 - [x] arXiv record links to the project page.
 - [x] Code repository linked from the project page.
 - [x] SciRate and other arXiv mirrors discovered the paper automatically.
-- [x] Complete Tier 1 metadata, sitemap, structured data, and public BibTeX.
+- [x] Complete Tier 1 metadata, sitemap, and structured data.
+- [ ] Add the final BibTeX citation when it is released.
 - [ ] Submit Google Search Console property, sitemap, and URL inspection request.
 - [ ] Submit/import the site in Bing Webmaster Tools.
 - [ ] Connect Papers with Code to the official code repository.

@@ -114,6 +114,28 @@ export default function Home() {
         </p>
       </section>
 
+      <section className="abstract-band" aria-labelledby="abstract-title">
+        <div>
+          <p className="section-index">Paper</p>
+          <h2 id="abstract-title">Abstract</h2>
+        </div>
+        <p>
+          Chunk-autoregressive video world models typically condition each generated chunk on one action. An
+          action received during sampling must therefore wait for the next chunk, condition future solver
+          evaluations on a state produced under the previous action, or trigger rollback that repeats completed
+          evaluations. We introduce ActionSplice, an inference framework that formulates this problem as
+          Counterfactual State Transport (CST). A lightweight corrector transports the interrupted backbone-native
+          representation toward the matched state induced by the revised action at the same solver step. The world
+          model and sampler remain frozen, and sampling resumes without replaying completed evaluations. The
+          retargeting variant CST-R updates the entire active chunk, while the temporal-splicing variant CST-T
+          preserves a temporal prefix and updates only the suffix. Across minWM-Wan Action2V and HY-WM1.5, CST-R
+          reduces rollback-relative LPIPS by 61.5% and 75.9% relative to direct condition swapping. CST-T reduces
+          suffix LPIPS by 56.1% and 77.5%, respectively, while providing 2.73× and 1.69× pixel-ready speedups over
+          waiting. Under the HY-WorldPlay protocol, CST-R obtains a PSNR of 25.66 dB, an SSIM of 0.6902, and an LPIPS
+          of 0.1337 against the original rollout.
+        </p>
+      </section>
+
       <section className="method-band" id="method">
         <div className="method-intro">
           <p className="section-index">01 / Method</p>
@@ -226,19 +248,9 @@ export default function Home() {
           <p className="section-index">04 / Citation</p>
           <h2>Citation</h2>
         </div>
-        <div className="citation-card">
-          <a href="https://arxiv.org/abs/2609.08230" target="_blank" rel="noreferrer">
-            arXiv:2609.08230
-          </a>
-          <pre><code>{`@misc{taghavi2026actionsplice,
-  title={ActionSplice: In-Flight Action Editing for Interactive World Models},
-  author={Pardis Taghavi and Tingyu Guo and Jonas Lossner and Gaurav Pandey and Reza Langari},
-  year={2026},
-  eprint={2609.08230},
-  archivePrefix={arXiv},
-  primaryClass={cs.CV},
-  url={https://arxiv.org/abs/2609.08230}
-}`}</code></pre>
+        <div className="citation-placeholder">
+          <span>Pending</span>
+          <p>BibTeX will be added when the final citation is available.</p>
         </div>
       </section>
 
