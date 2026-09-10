@@ -44,10 +44,6 @@ button, input { font: inherit; }
 .brand { display: flex; align-items: center; font-size: 13px; font-weight: 650; }
 .nav-links { display: flex; gap: 30px; font-size: 12px; color: #414b5a; }
 .nav-links a:hover { color: var(--blue); }
-.internal-badge {
-  justify-self: end; padding: 7px 10px; border: 1px solid #d9e0e9; border-radius: 99px;
-  color: #697386; font: 600 10px/1 var(--font-geist-mono), monospace; text-transform: uppercase; letter-spacing: .08em;
-}
 
 .hero { padding: clamp(70px, 9vw, 132px) clamp(22px, 4vw, 72px) clamp(82px, 10vw, 148px); overflow: hidden; background: #fff; }
 .hero-copy { max-width: 1240px; margin: 0 auto; text-align: center; }
@@ -280,9 +276,8 @@ footer p { margin: 0; }
 footer span { font-family: var(--font-geist-mono), monospace; font-size: 9px; text-transform: uppercase; letter-spacing: .06em; }
 
 @media (max-width: 960px) {
-  .site-nav { grid-template-columns: 1fr auto; }
+  .site-nav { grid-template-columns: 1fr; }
   .nav-links { display: none; }
-  .internal-badge { grid-column: 2; }
   .method-layout { grid-template-columns: 1fr; }
   .method-intro { position: static; max-width: 720px; }
   .comparison-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }

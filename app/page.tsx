@@ -65,7 +65,6 @@ export default function Home() {
           <a href="#results">Evaluation</a>
           <a href="#citation">Citation</a>
         </div>
-        <span className="internal-badge">Research project</span>
       </nav>
 
       <section className="hero" id="top">
