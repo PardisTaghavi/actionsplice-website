@@ -136,82 +136,53 @@ export default function Home() {
       </section>
 
       <section className="method-band" id="method">
-        <div className="content-shell">
-          <div className="method-layout">
-            <div className="method-intro">
-              <p className="section-index">Method</p>
-              <h2>Change action without restarting the trajectory.</h2>
+        <div className="content-shell method-layout">
+          <div className="method-intro">
+            <p className="section-index">Method</p>
+            <h2>Same-step state transport.</h2>
+            <p>
+              When an action changes after solver evaluation <i>r</i>, ActionSplice updates the interrupted clean
+              prediction and reconstructs the corresponding scheduler state. Sampling then continues from the next
+              evaluation—without replaying completed world-model evaluations.
+            </p>
+          </div>
+
+          <div className="method-technical">
+            <div className="method-equations" role="math" aria-label="ActionSplice state transport equations">
               <p>
-                At receipt step <i>r</i>, ActionSplice corrects the current clean prediction and reconstructs a
-                valid state for the next solver evaluation. The world model, sampler, decoder, and committed
-                history stay frozen.
+                <i>x̂</i><sub>r</sub><sup>(m)</sup>
+                <span>=</span>
+                <i>x</i><sub>r</sub><sup>−</sup>
+                <span>+</span>
+                <i>M</i><sub>m</sub>
+                <span>⊙</span>
+                <i>C</i><sub>ϑ</sub>(𝓘<sub>r</sub>, <i>M</i><sub>m</sub>)
               </p>
-              <div className="method-constraints" aria-label="Method constraints">
-                <span>same solver step</span>
-                <span>zero replayed NFEs</span>
-                <span>frozen backbone</span>
-              </div>
+              <p>
+                <i>ẑ</i><sub>r</sub><sup>(m)</sup>
+                <span>=</span>
+                ℛ<sub>r</sub>(<i>x̂</i><sub>r</sub><sup>(m)</sup>; ω<sub>r</sub>)
+              </p>
             </div>
 
-            <div className="transport-panel" aria-label="Counterfactual state transport pipeline">
-              <div className="action-update">
-                <span>action update after evaluation r</span>
-                <strong><i>a</i><sup>−</sup> <b aria-hidden="true">→</b> <i>a</i><sup>+</sup></strong>
+            <dl className="method-definitions">
+              <div>
+                <dt>CST-R</dt>
+                <dd><i>m</i> = 0 · retarget the entire active chunk.</dd>
               </div>
-
-              <div className="transport-track">
-                <div className="transport-state source-state">
-                  <span>interrupted prediction</span>
-                  <strong><i>x</i><sub>r</sub><sup>−</sup></strong>
-                  <small>old-action trajectory</small>
-                </div>
-
-                <div className="transport-operation">
-                  <span>ActionSplice</span>
-                  <strong><i>M</i><sub>m</sub> ⊙ <i>C</i><sub>ϑ</sub></strong>
-                  <small>masked clean-state residual</small>
-                </div>
-
-                <div className="transport-state target-state">
-                  <span>corrected prediction</span>
-                  <strong><i>x̂</i><sub>r</sub><sup>(m)</sup></strong>
-                  <small>same solver step r</small>
-                </div>
-
-                <div className="scheduler-operation">
-                  <span>native scheduler</span>
-                  <strong>ℛ<sub>r</sub></strong>
-                </div>
-
-                <div className="transport-state resume-state">
-                  <span>resume from</span>
-                  <strong><i>ẑ</i><sub>r</sub><sup>(m)</sup></strong>
-                  <small>execute remaining K − r NFEs</small>
-                </div>
+              <div>
+                <dt>CST-T</dt>
+                <dd>0 &lt; <i>m</i> &lt; <i>T</i> · preserve the old-action prefix and edit the suffix.</dd>
               </div>
-
-              <div className="transport-variants">
-                <article className="variant-row">
-                  <div className="variant-name">
-                    <strong>CST-R</strong>
-                    <span>m = 0 · retarget full chunk</span>
-                  </div>
-                  <div className="frame-strip full-edit" aria-label="Entire active chunk uses the revised action">
-                    {Array.from({ length: 8 }).map((_, index) => <i key={index} />)}
-                  </div>
-                </article>
-                <article className="variant-row">
-                  <div className="variant-name">
-                    <strong>CST-T</strong>
-                    <span>0 &lt; m &lt; T · preserve prefix, edit suffix</span>
-                  </div>
-                  <div className="frame-strip temporal-edit" aria-label="Prefix retains the old action and suffix uses the revised action">
-                    {Array.from({ length: 8 }).map((_, index) => <i key={index} />)}
-                    <b>m</b>
-                  </div>
-                </article>
+              <div>
+                <dt>Inference</dt>
+                <dd>Resume the remaining <i>K</i> − <i>r</i> evaluations with the backbone, sampler, and history frozen.</dd>
               </div>
-            </div>
+            </dl>
+
+            <p className="method-oracle-note">
+              Full rollback provides training targets and evaluation oracles; it is not executed during ActionSplice inference.
+            </p>
           </div>
         </div>
       </section>
