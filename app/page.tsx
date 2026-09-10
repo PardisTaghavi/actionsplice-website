@@ -56,9 +56,6 @@ export default function Home() {
   return (
     <main>
       <nav className="site-nav" aria-label="Primary navigation">
-        <a className="brand" href="#top" aria-label="ActionSplice home">
-          <span>ActionSplice</span>
-        </a>
         <div className="nav-links">
           <a href="#method">Method</a>
           <a href="#gallery">Gallery</a>
