@@ -118,19 +118,15 @@ export default function Home() {
             <h2 id="abstract-title">Abstract</h2>
           </div>
           <p>
-            Chunk-autoregressive video world models typically condition each generated chunk on one action. An
-            action received during sampling must therefore wait for the next chunk, condition future solver
-            evaluations on a state produced under the previous action, or trigger rollback that repeats completed
-            evaluations. We introduce ActionSplice, an inference framework that formulates this problem as
-            Counterfactual State Transport (CST). A lightweight corrector transports the interrupted backbone-native
-            representation toward the matched state induced by the revised action at the same solver step. The world
-            model and sampler remain frozen, and sampling resumes without replaying completed evaluations. The
-            retargeting variant CST-R updates the entire active chunk, while the temporal-splicing variant CST-T
-            preserves a temporal prefix and updates only the suffix. Across minWM-Wan Action2V and HY-WM1.5, CST-R
-            reduces rollback-relative LPIPS by 61.5% and 75.9% relative to direct condition swapping. CST-T reduces
-            suffix LPIPS by 56.1% and 77.5%, respectively, while providing 2.73× and 1.69× pixel-ready speedups over
-            waiting. Under the HY-WorldPlay protocol, CST-R obtains a PSNR of 25.66 dB, an SSIM of 0.6902, and an LPIPS
-            of 0.1337 against the original rollout.
+            Chunk-autoregressive video world models typically condition each generated chunk on one action. We
+            introduce ActionSplice, an inference framework that formulates this problem as Counterfactual State
+            Transport (CST). A lightweight corrector transports the interrupted backbone-native representation toward
+            the matched state induced by the revised action at the same solver step. The world model and sampler remain
+            frozen, and sampling resumes without replaying completed evaluations. The retargeting variant CST-R updates
+            the entire active chunk, while the temporal-splicing variant CST-T preserves a temporal prefix and updates
+            only the suffix. Across minWM-Wan Action2V and HY-WM1.5, CST-R reduces rollback-relative LPIPS by 61.5% and
+            75.9% relative to direct condition swapping. CST-T reduces suffix LPIPS by 56.1% and 77.5%, respectively,
+            while providing 2.73× and 1.69× pixel-ready speedups over waiting.
           </p>
         </div>
       </section>
