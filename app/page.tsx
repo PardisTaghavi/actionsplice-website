@@ -142,28 +142,81 @@ export default function Home() {
 
       <section className="method-band" id="method">
         <div className="content-shell">
-          <div className="method-intro">
-            <p className="section-index">Method</p>
-            <h2>Transport the state. Keep the model frozen.</h2>
-            <p>
-              CST edits the model-specific clean prediction, reconstructs the
-              exact scheduler-consistent state, and resumes ordinary denoising.
-            </p>
-          </div>
-          <div className="method-flow">
-            {[
-              ['01', 'Interrupt', 'Capture the old-action active state.'],
-              ['02', 'Transport', 'Predict the matched clean-state correction.'],
-              ['03', 'Reconstruct', 'Apply the native scheduler realization.'],
-              ['04', 'Resume', 'Execute only the remaining frozen-model NFEs.'],
-            ].map(([index, title, body], position) => (
-              <div className="method-step" key={title}>
-                <span>{index}</span>
-                <strong>{title}</strong>
-                <p>{body}</p>
-                {position < 3 && <i aria-hidden="true">→</i>}
+          <div className="method-layout">
+            <div className="method-intro">
+              <p className="section-index">Method</p>
+              <h2>Change action without restarting the trajectory.</h2>
+              <p>
+                At receipt step <i>r</i>, ActionSplice corrects the current clean prediction and reconstructs a
+                valid state for the next solver evaluation. The world model, sampler, decoder, and committed
+                history stay frozen.
+              </p>
+              <div className="method-constraints" aria-label="Method constraints">
+                <span>same solver step</span>
+                <span>zero replayed NFEs</span>
+                <span>frozen backbone</span>
               </div>
-            ))}
+            </div>
+
+            <div className="transport-panel" aria-label="Counterfactual state transport pipeline">
+              <div className="action-update">
+                <span>action update after evaluation r</span>
+                <strong><i>a</i><sup>−</sup> <b aria-hidden="true">→</b> <i>a</i><sup>+</sup></strong>
+              </div>
+
+              <div className="transport-track">
+                <div className="transport-state source-state">
+                  <span>interrupted prediction</span>
+                  <strong><i>x</i><sub>r</sub><sup>−</sup></strong>
+                  <small>old-action trajectory</small>
+                </div>
+
+                <div className="transport-operation">
+                  <span>ActionSplice</span>
+                  <strong><i>M</i><sub>m</sub> ⊙ <i>C</i><sub>ϑ</sub></strong>
+                  <small>masked clean-state residual</small>
+                </div>
+
+                <div className="transport-state target-state">
+                  <span>corrected prediction</span>
+                  <strong><i>x̂</i><sub>r</sub><sup>(m)</sup></strong>
+                  <small>same solver step r</small>
+                </div>
+
+                <div className="scheduler-operation">
+                  <span>native scheduler</span>
+                  <strong>ℛ<sub>r</sub></strong>
+                </div>
+
+                <div className="transport-state resume-state">
+                  <span>resume from</span>
+                  <strong><i>ẑ</i><sub>r</sub><sup>(m)</sup></strong>
+                  <small>execute remaining K − r NFEs</small>
+                </div>
+              </div>
+
+              <div className="transport-variants">
+                <article className="variant-row">
+                  <div className="variant-name">
+                    <strong>CST-R</strong>
+                    <span>m = 0 · retarget full chunk</span>
+                  </div>
+                  <div className="frame-strip full-edit" aria-label="Entire active chunk uses the revised action">
+                    {Array.from({ length: 8 }).map((_, index) => <i key={index} />)}
+                  </div>
+                </article>
+                <article className="variant-row">
+                  <div className="variant-name">
+                    <strong>CST-T</strong>
+                    <span>0 &lt; m &lt; T · preserve prefix, edit suffix</span>
+                  </div>
+                  <div className="frame-strip temporal-edit" aria-label="Prefix retains the old action and suffix uses the revised action">
+                    {Array.from({ length: 8 }).map((_, index) => <i key={index} />)}
+                    <b>m</b>
+                  </div>
+                </article>
+              </div>
+            </div>
           </div>
         </div>
       </section>
