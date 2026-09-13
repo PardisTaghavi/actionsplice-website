@@ -189,9 +189,13 @@ button, input { font: inherit; }
 .citation-band { padding: clamp(84px, 10vw, 138px) clamp(22px, 5vw, 86px); background: white; }
 .citation-layout { display: grid; grid-template-columns: .6fr 1.4fr; gap: clamp(36px, 8vw, 110px); align-items: start; }
 .citation-band h2 { margin: 0; font-size: clamp(38px, 5vw, 70px); line-height: 1; letter-spacing: -.05em; font-weight: 620; }
-.citation-placeholder { padding: 28px; border: 1px dashed #b9c5d4; border-radius: 16px; background: #f8f9fb; }
-.citation-placeholder span { display: inline-block; margin-bottom: 12px; color: var(--blue); font: 700 11px/1.2 var(--font-geist-mono), monospace; text-transform: uppercase; letter-spacing: .08em; }
-.citation-placeholder p { margin: 0; color: var(--muted); font-size: 16px; line-height: 1.6; }
+.citation-box { overflow: hidden; border: 1px solid #d5dce7; border-radius: 16px; background: #f8f9fb; }
+.citation-toolbar { display: flex; align-items: center; justify-content: space-between; gap: 20px; padding: 13px 15px 13px 20px; border-bottom: 1px solid #dfe4eb; }
+.citation-toolbar span { color: #657084; font: 700 11px/1.2 var(--font-geist-mono), monospace; text-transform: uppercase; letter-spacing: .08em; }
+.citation-toolbar button { padding: 9px 13px; border: 0; border-radius: 999px; background: #111827; color: white; cursor: pointer; font-size: 12px; font-weight: 650; transition: background .18s ease, transform .18s ease; }
+.citation-toolbar button:hover { transform: translateY(-1px); background: var(--blue); }
+.citation-toolbar button:focus-visible { outline: 3px solid rgb(36 87 245 / 28%); outline-offset: 2px; }
+.citation-box pre { margin: 0; padding: 24px 20px 26px; overflow-x: auto; color: #263248; font: 500 13px/1.65 var(--font-geist-mono), monospace; white-space: pre; }
 
 footer { padding: 42px clamp(22px, 5vw, 86px); background: white; color: #7a8493; font-size: 11px; }
 .footer-inner { display: grid; grid-template-columns: 1fr 1.4fr auto; gap: 35px; align-items: center; }
@@ -232,7 +236,7 @@ footer span { font-family: var(--font-geist-mono), monospace; font-size: 9px; te
   .results-grid { grid-template-columns: 1fr; }
   .abstract-band { padding-inline: 18px; }
   .citation-band { padding-inline: 18px; }
-  .citation-placeholder { padding: 22px 18px; }
+  .citation-box pre { padding: 20px 16px 22px; font-size: 12px; }
   .runtime-card { grid-template-columns: 1fr; }
   .runtime-media { min-height: 170px; }
   footer { padding-inline: 18px; }

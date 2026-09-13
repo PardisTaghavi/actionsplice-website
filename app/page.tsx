@@ -1,3 +1,5 @@
+import { CitationCopy } from './citation-copy';
+
 type ComparisonItem = {
   prompt: string;
   transition: string;
@@ -272,10 +274,7 @@ export default function Home() {
             <p className="section-index">Citation</p>
             <h2>Citation</h2>
           </div>
-          <div className="citation-placeholder">
-            <span>Pending</span>
-            <p>BibTeX will be added when the final citation is available.</p>
-          </div>
+          <CitationCopy />
         </div>
       </section>
 
