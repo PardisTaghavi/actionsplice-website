@@ -282,7 +282,6 @@ export default function Home() {
         <div className="content-shell footer-inner">
           <strong>ActionSplice</strong>
           <p>In-Flight Action Editing for Interactive World Models</p>
-          <span>Research website · 2026</span>
         </div>
       </footer>
     </main>

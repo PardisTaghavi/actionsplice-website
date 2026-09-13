@@ -198,10 +198,9 @@ button, input { font: inherit; }
 .citation-box pre { margin: 0; padding: 24px 20px 26px; overflow-x: auto; color: #263248; font: 500 13px/1.65 var(--font-geist-mono), monospace; white-space: pre; }
 
 footer { padding: 42px clamp(22px, 5vw, 86px); background: white; color: #7a8493; font-size: 11px; }
-.footer-inner { display: grid; grid-template-columns: 1fr 1.4fr auto; gap: 35px; align-items: center; }
+.footer-inner { display: grid; grid-template-columns: auto 1fr; gap: 35px; align-items: center; }
 footer strong { color: var(--ink); }
 footer p { margin: 0; }
-footer span { font-family: var(--font-geist-mono), monospace; font-size: 9px; text-transform: uppercase; letter-spacing: .06em; }
 
 @media (max-width: 960px) {
   .method-layout { grid-template-columns: 1fr; }
