@@ -105,10 +105,10 @@ export default function Home() {
         <div className="content-shell summary-layout">
           <h2 className="section-index" id="summary-title">TL;DR</h2>
           <p>
-            ActionSplice edits an in-progress diffusion state when the requested action changes during sampling.
-            CST-R retargets the active chunk; CST-T preserves the completed prefix and applies the new action to
-            the remaining suffix. Both resume the frozen world model from the current solver step instead of
-            restarting generation.
+            ActionSplice edits an in-progress solver state when the requested action changes during sampling.
+            CST-R retargets the active chunk; CST-T preserves a temporal prefix at the intervention step and
+            corrects only the suffix. Both resume the frozen world model from the current solver step without
+            replaying completed evaluations.
           </p>
         </div>
       </section>
@@ -120,15 +120,17 @@ export default function Home() {
             <h2 id="abstract-title">Abstract</h2>
           </div>
           <p>
-            Chunk-autoregressive video world models typically condition each generated chunk on one action. We
-            introduce ActionSplice, an inference framework that formulates this problem as Counterfactual State
-            Transport (CST). A lightweight corrector transports the interrupted backbone-native representation toward
-            the matched state induced by the revised action at the same solver step. The world model and sampler remain
-            frozen, and sampling resumes without replaying completed evaluations. The retargeting variant CST-R updates
-            the entire active chunk, while the temporal-splicing variant CST-T preserves a temporal prefix and updates
-            only the suffix. Across minWM-Wan Action2V and HY-WM1.5, CST-R reduces rollback-relative LPIPS by 61.5% and
-            75.9% relative to direct condition swapping. CST-T reduces suffix LPIPS by 56.1% and 77.5%, respectively,
-            while providing 2.73× and 1.69× pixel-ready speedups over waiting.
+            Chunk-autoregressive video world models typically generate each chunk under one action. When an action
+            changes during sampling, waiting until the next chunk delays the response, while directly switching the
+            conditioning leaves the intermediate solver state shaped by the previous action. Restarting sampling under
+            the revised action avoids this mismatch but repeats completed computation. We introduce ActionSplice, which
+            edits the interrupted state through Counterfactual State Transport (CST). A lightweight corrector moves the
+            interrupted solver state toward the matched counterfactual solver state induced by the revised action at the
+            same solver step. The world model and sampler remain frozen, and sampling resumes without replaying completed
+            evaluations. CST-R retargets the entire active chunk, while CST-T preserves the temporal prefix at the
+            intervention step and corrects only the suffix. On minWM-Wan Action2V and HY-WM1.5, we measure fidelity
+            against matched rollback references. Relative to condition swapping, CST-R reduces LPIPS by 61.5% and 75.9%,
+            and CST-T reduces suffix LPIPS by 56.1% and 77.5%, respectively.
           </p>
         </div>
       </section>
@@ -139,27 +141,29 @@ export default function Home() {
             <p className="section-index">Method</p>
             <h2>Same-step state transport.</h2>
             <p>
-              When an action changes after solver evaluation <i>r</i>, ActionSplice updates the interrupted clean
-              prediction and reconstructs the corresponding scheduler state. Sampling then continues from the next
-              evaluation—without replaying completed world-model evaluations.
+              When an action changes after solver evaluation <i>r</i>, ActionSplice corrects the interrupted
+              backbone-native solver state toward its matched counterfactual at the same step. Sampling then continues
+              from the next evaluation—without replaying completed world-model evaluations.
             </p>
           </div>
 
           <div className="method-technical">
             <div className="method-equations" role="math" aria-label="ActionSplice state transport equations">
               <p>
-                <i>x̂</i><sub>r</sub><sup>(m)</sup>
+                <i>ẑ</i><sub>r</sub>
                 <span>=</span>
-                <i>x</i><sub>r</sub><sup>−</sup>
+                <i>z</i><sub>r</sub><sup>−</sup>
                 <span>+</span>
                 <i>M</i><sub>m</sub>
                 <span>⊙</span>
-                <i>C</i><sub>ϑ</sub>(𝓘<sub>r</sub>, <i>M</i><sub>m</sub>)
+                <i>C</i><sub>φ<sub>q</sub></sub>(𝓘<sub>r</sub>, <i>M</i><sub>m</sub>)
               </p>
               <p>
-                <i>ẑ</i><sub>r</sub><sup>(m)</sup>
+                (1 − <i>M</i><sub>m</sub>)
+                <span>⊙</span>
+                (<i>ẑ</i><sub>r</sub> − <i>z</i><sub>r</sub><sup>−</sup>)
                 <span>=</span>
-                ℛ<sub>r</sub>(<i>x̂</i><sub>r</sub><sup>(m)</sup>; ω<sub>r</sub>)
+                0
               </p>
             </div>
 
@@ -252,9 +256,9 @@ export default function Home() {
               <small>Relative to direct condition swapping.</small>
             </article>
             <article className="result-card">
-              <p>CST-T · pixel-ready speedup</p>
-              <div><strong>2.73×</strong><span>minWM</span></div>
-              <div><strong>1.69×</strong><span>HY-WM1.5</span></div>
+              <p>CST-R · pixel-ready speedup</p>
+              <div><strong>2.69×</strong><span>minWM</span></div>
+              <div><strong>1.64×</strong><span>HY-WM1.5</span></div>
               <small>Relative to waiting.</small>
             </article>
             <article className="result-card benchmark-card">

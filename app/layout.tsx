@@ -13,7 +13,7 @@ const authors = [
   'Gaurav Pandey',
   'Reza Langari',
 ];
-const abstract = 'ActionSplice enables in-flight action editing in chunk-autoregressive video world models through Counterfactual State Transport. A lightweight corrector transports an interrupted backbone-native representation toward the matched state induced by a revised action at the same solver step, allowing the frozen world model and sampler to resume without replaying completed evaluations.';
+const abstract = 'Chunk-autoregressive video world models typically generate each chunk under one action. ActionSplice edits an interrupted solver state through Counterfactual State Transport: a lightweight corrector moves it toward the matched counterfactual state induced by the revised action at the same solver step. The world model and sampler remain frozen, and sampling resumes without replaying completed evaluations. CST-R retargets the active chunk, while CST-T preserves the temporal prefix at the intervention step and corrects only the suffix.';
 
 const scholarlyArticleJsonLd = {
   '@context': 'https://schema.org',
@@ -42,7 +42,7 @@ const scholarlyArticleJsonLd = {
 export const metadata: Metadata = {
   metadataBase: new URL(canonicalUrl),
   title: paperTitle,
-  description: 'ActionSplice edits an active diffusion state when an action changes, then resumes the frozen world model without replaying completed solver evaluations.',
+  description: 'ActionSplice edits an active solver state when an action changes, then resumes the frozen world model without replaying completed evaluations.',
   applicationName: 'ActionSplice',
   authors: authors.map((name) => ({ name })),
   creator: 'Pardis Taghavi',
