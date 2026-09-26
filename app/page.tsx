@@ -113,28 +113,6 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="abstract-band" aria-labelledby="abstract-title">
-        <div className="content-shell abstract-layout">
-          <div>
-            <p className="section-index">Paper</p>
-            <h2 id="abstract-title">Abstract</h2>
-          </div>
-          <p>
-            Chunk-autoregressive video world models typically generate each chunk under one action. When an action
-            changes during sampling, waiting until the next chunk delays the response, while directly switching the
-            conditioning leaves the intermediate solver state shaped by the previous action. Restarting sampling under
-            the revised action avoids this mismatch but repeats completed computation. We introduce ActionSplice, which
-            edits the interrupted state through Counterfactual State Transport (CST). A lightweight corrector moves the
-            interrupted solver state toward the matched counterfactual solver state induced by the revised action at the
-            same solver step. The world model and sampler remain frozen, and sampling resumes without replaying completed
-            evaluations. CST-R retargets the entire active chunk, while CST-T preserves the temporal prefix at the
-            intervention step and corrects only the suffix. On minWM-Wan Action2V and HY-WM1.5, we measure fidelity
-            against matched rollback references. Relative to condition swapping, CST-R reduces LPIPS by 61.5% and 75.9%,
-            and CST-T reduces suffix LPIPS by 56.1% and 77.5%, respectively.
-          </p>
-        </div>
-      </section>
-
       <section className="method-band" id="method">
         <div className="content-shell method-layout">
           <div className="method-intro">
